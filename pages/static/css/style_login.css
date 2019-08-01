@@ -1,0 +1,111 @@
+
+html, body{
+  background: #333333;
+}
+
+/* Component */
+
+.component{
+  vertical-align: middle;
+  position : absolute;
+  left: 20%;
+  right: 20%;
+  top: 10%;
+  bottom: 10%;
+}
+
+
+/* Rectangle 3.1 */
+.Rectangle{
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 16.45%;
+  bottom: 0%;
+
+  background: #F4A928;
+}
+
+.accent_button_shadow{
+/* accent button shadow */
+  box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+  border-radius: 4px;
+}
+
+
+/* Rectangle 3.2 */
+.Rectangle_noir{
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 83.55%;
+
+  background: #000000;
+  border-radius: 4px;
+  background-image:url('drone.png');
+
+}
+
+/* Final-01 */
+.logo_image{
+  vertical-align: middle;
+  max-height: 100%;
+  width: auto;
+  background: url(drone.png);
+}
+
+.info{
+  text-align: center;
+
+  font-style: bold;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 55px;
+  /* identical to box height */
+
+  color: #000000;
+  padding : 2em;
+}
+
+.userdiv{
+  vertical-align: middle;
+  margin: auto;
+	width: 40%;
+
+}
+
+.userinfo{
+  text-align: right;
+  line-height: 30px;
+  padding : 2em;
+}
+.userquestion{
+  text-align: left;
+  padding : 2em;
+
+}
+
+.submit_button{
+  padding : 2em;
+  background-color: #000000;
+  color : white;
+  vertical-align: middle;
+  text-align: center;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+
+  margin: 0 auto;
+  display: block;
+
+  box-shadow: 0px 4px 10px rgba(16, 156, 241, 0.24);
+  border-radius: 4px;
+}
+
+.redirection{
+  text-align: center;
+  padding : 2em;
+}

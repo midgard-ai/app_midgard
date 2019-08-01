@@ -1,0 +1,19 @@
+html, body{
+  background-image: url("spring_creek.jpg");
+}
+
+.btn-sq-lg {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+
+.navbar_nav{
+
+background-image : url("logo.png");
+background-color: #F4A928;
+margin-top: 10px;
+margin-bottom: 10px;
+margin-right: 0px;
+margin-left: 0px;
+}
