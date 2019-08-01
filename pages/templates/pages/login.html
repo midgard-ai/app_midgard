@@ -1,16 +1,74 @@
-{% extends 'base.html' %}
-  
-{% block body %}
-<div class="container">
-    <h1>Welcome</h1>
-    <p>
-        You can log in here!
-    </p>
-    <h2>Login</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
-    </form>
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/style_login.css' %}">
+
+
+</head>
+
+
+<body>
+
+{% block content %}
+
+<div class = "component container">
+  <div class = "Rectangle_noir"></div>
+
+
+  <div class = "Rectangle">
+
+
+<p class = info> Veuillez vous connectez afin d'acceder au service </p>
+
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table class = "userdiv container">
+<tr>
+    <td class="userquestion">Identifiant : </td>
+    <td class = "userinfo">{{ form.username }}</td>
+</tr>
+<tr>
+    <td class = "userquestion">Mot de passe : </td>
+    <td class = "userinfo">{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="Connexion" class = "submit_button">
+<input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+<p class = "redirection" ><a href="{% url 'password_reset' %}">Mot de passe perdu ? </a></p>
+
+<p class = "redirection" ><a href="{% url 'register' %}">Inscription</a></p>
+
 </div>
+
+</div>
+
 {% endblock %}
+
+  </body>
