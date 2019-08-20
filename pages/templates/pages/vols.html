@@ -3,10 +3,41 @@
 
 {% if user.is_authenticated %}
 
+{% comment %} Include la lib js "Tif.js"
+Afficher un tif grace à la lib {% endcomment %}
+
 {% block content %}
 <h1>Tableau de vols, lien avec base de données postgres </h1>
 
 <h2> Your name is : {{ user.username }} </h2>
+<script src="/static/js/tiff.min.js"></script>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.responseType = 'arraybuffer';
+xhr.open('GET', "/static/tif/test.tif");
+xhr.onload = function (e) {
+  var tiff = new Tiff({buffer: xhr.response});
+  console.log(tiff)
+  var canvas = tiff.toCanvas();
+  document.body.append(canvas);
+};
+xhr.send();
+
+{% comment %} foreach(tif in params.tif)
+var rif = new Tiff({buffer: tif});
+var canvas = tiff.toCanvas();
+  document.body.append(canvas); {% endcomment %}
+</script>
+
+
+
+{% comment %} return render(vols, params->tif[get_tif->with(user_id, user->id)]); {% endcomment %}
+
+<style>
+canvas{
+    width: 500px;
+}
+<style>
 
 {% endblock %}
 

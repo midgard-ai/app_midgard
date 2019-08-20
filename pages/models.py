@@ -152,20 +152,20 @@ class Feuinfo(models.Model):
         db_table = 'feuinfo'
 
 
-class Layer(models.Model):
-    topology = models.ForeignKey('Topology', models.DO_NOTHING, primary_key=True)
-    layer_id = models.IntegerField()
-    schema_name = models.CharField(max_length=-1)
-    table_name = models.CharField(max_length=-1)
-    feature_column = models.CharField(max_length=-1)
-    feature_type = models.IntegerField()
-    level = models.IntegerField()
-    child_id = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'layer'
-        unique_together = (('topology', 'layer_id'), ('schema_name', 'table_name', 'feature_column'),)
+# class Layer(models.Model):
+#     topology = models.ForeignKey('Topology', models.DO_NOTHING, primary_key=True)
+#     layer_id = models.IntegerField()
+#     schema_name = models.CharField(max_length=-1)
+#     table_name = models.CharField(max_length=-1)
+#     feature_column = models.CharField(max_length=-1)
+#     feature_type = models.IntegerField()
+#     level = models.IntegerField()
+#     child_id = models.IntegerField(blank=True, null=True)
+#
+#   class Meta:
+#       managed = False
+#        db_table = 'layer'
+#        unique_together = (('topology', 'layer_id'), ('schema_name', 'table_name', 'feature_column'),)
 
 
 class PagesVols(models.Model):
@@ -191,12 +191,12 @@ class SpatialRefSys(models.Model):
         db_table = 'spatial_ref_sys'
 
 
-class Topology(models.Model):
-    name = models.CharField(unique=True, max_length=-1)
-    srid = models.IntegerField()
-    precision = models.FloatField()
-    hasz = models.BooleanField()
+# class Topology(models.Model):
+#     name = models.CharField(unique=True, max_length=-1)
+#     srid = models.IntegerField()
+#     precision = models.FloatField()
+#     hasz = models.BooleanField()
 
-    class Meta:
-        managed = False
-        db_table = 'topology'
+#     class Meta:
+#         managed = False
+#         db_table = 'topology'
